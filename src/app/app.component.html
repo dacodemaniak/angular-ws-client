@@ -1,0 +1,22 @@
+<form [formGroup]="sendForm" (submit)="send()">
+  <div class="input-group mb-3">
+    <mat-form-field class="">
+      <input matInput type="text" formControlName="message"
+        placeholder="Envoyer un message..."
+      >
+    </mat-form-field>
+    <div class="input-group-append">
+      <button
+        class="btn btn-outline-secondary"
+        type="submit"
+        [disabled]="sendForm.invalid"
+        id="button-addon2">Envoyer</button>
+    </div>
+  </div>
+</form>
+<ul>
+  <li *ngFor="let message of serverMessages">
+    <span class="badge">{{ message.user }}</span>{{ message.message }}
+  </li>
+</ul>
+
